@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Update <%= resumes.resumes_name%></title>
+</head>
+<body>
+<h1>Update <%= resumes.resumes_name%></h1>
+<form action="/resumes/update" method="get">
+    <input type="hidden" id="resumes_id" name="resumes_id" value="<%= resumes.resumes_id %>">
+    resumes Name: <input id="resumes_name" name="resumes_name" type="text" value="<%= resumes.resumes_name%>"/>
+    <br />
+    <br />
+
+
+    <br />
+
+    <input type="submit" />
+
+</form>
+</body>
+
+</html>

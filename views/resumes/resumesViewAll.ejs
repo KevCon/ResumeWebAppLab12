@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Resumes</title>
+</head>
+   <h1>Resumes</h1>
+    <a href="/resumes/add">Add New Resumes</a> <br />
+    <table border="1">
+        <tr><th>Resumes name</th><th>name</th><th>Action</th></tr>
+        <% for(var i=0; result.length > i; i++ ) { %>
+         <tr>
+               <td><a href="/resumes/?resumes_id=<%= result[i].resumes_id %>"><%= result[i].resumes_name %></a></td>
+                <td><a href="/account/?account_id=<%= result[i].account_id %>"><%= result[i].first%> <%= result[i].last%></a></td>
+             <td>
+                 <button onclick="event.preventDefault();window.location.href='/resumes/edit2/?resumes_id=<%= result[i].resumes_id %>'">Edit</button>
+                 <form action="/resumes/delete/">
+                     <input type="hidden" name="resumes_id" id="resumes_id" value="<%= result[i].resumes_id %>" />
+                     <input type="submit" value="Delete"/>
+                 </form>
+             </td>
+         </tr>
+          <% } %>
+         </table>
+ <%- include("../includes/footer.ejs"); %>

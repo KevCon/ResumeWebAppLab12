@@ -1,0 +1,29 @@
+<html>
+<head>
+    <center>
+        <title>Accounts</title>
+    </center>
+</head>
+<body background="http://wallup.net/wp-content/uploads/2016/01/42309-nature-forest-mountain.jpg">
+<center><h1 style="color:floralwhite" >Account</h1>
+    <a href="/account/add">Add New Account</a> <br />
+</center>
+<table>
+    <tr><th>Account ID</th><th>First Name</th><th>Last name</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%= result[i].account_id%></td>
+        <td><a href="/account/?account_id=<%= result[i].account_id %>"><%= result[i].first %></a></td>
+        <td><%= result[i].last %></td>
+        <td>
+            <form action="/account/delete/">
+                <input type="hidden" name="account_id" id="account_id" value="<%= result[i].account_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

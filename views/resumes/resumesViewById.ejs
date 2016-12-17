@@ -1,0 +1,91 @@
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        s
+        tr:nth-child(even){background-color: #f2f2f2}
+        tr:nth-child(odd){background-color:darkgrey}
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <title>Resumes - <%= result[0].resumes_id %></title>
+</head>
+
+    <h1>Resumes:</h1>
+    <h2>
+        <ul>
+            <li style="color:darkorange;">Resumes Name: <%= result[0].resumes_name%></li>
+        </ul>
+    </h2>
+    <br>
+    <h2>Name: <%= result[0].first %>, <%= result[0].last %></h2>
+    <h2>skills:
+
+
+        <%var seen = 0;var name = '';for(var i = 0 ; i < result.length; i++ ) {
+            if(seen != 0)
+            {
+                var name = result[i].skill_name;
+                seen = 1;
+            }
+        if(result[i].skill_name == name)
+        {
+        %>
+        <%= result[i].skill_name %>
+        <% seen = 0;
+        }
+        else
+        {
+            seen = 1;
+        }
+        } %>
+
+
+    </h2>
+    <h2>description:
+
+        <%var seen = 0; var once = 0;for(var i = 0 ; i < result.length; i++ ) {
+            if(seen == 0) {
+                var name = result[i].description;
+                seen = 1;
+            }
+        if(result[i].description != name) { seen = 0; %>
+        <%= result[i].description%>
+        <% } %>
+        <% } %>
+        , <%= result[0].description%>
+
+
+
+    </h2>
+    <h2>companies :
+
+        <%var seen = 0; var once = 0;for(var i = 0 ; i < result.length; i++ ) {
+            if(seen == 0) {
+                var name = result[i].company_name;
+                seen = 1;
+            }
+        if(result[i].company_name != name) { seen = 0; %>
+        <%= result[i].company_name%>
+        <% } %>
+        <% } %>
+        , <%= result[0].company_name%>
+
+
+
+
+    </h2>
+    <h2>school: <%= result[0].school_name%></h2>
+</>
+</body>
+
+</html>
